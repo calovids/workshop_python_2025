@@ -1,0 +1,25 @@
+{
+  "name": "Python Workshop Container",
+  "build": {
+    "dockerfile": "../Dockerfile"
+  },
+  "runArgs": ["--network=host", "--dns=8.8.8.8"],
+    "customizations": {
+    "vscode": {
+      "settings": {
+        "marimo.server.pythonPath": "/opt/miniforge/bin/python",
+        "python.defaultInterpreterPath": "/opt/miniforge/bin/python",
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-vscode-remote.remote-containers",
+        "ms-toolsai.datawrangler",
+        "marimo-team.vscode-marimo",
+        "reditorsupport.r"
+      ]
+    }
+  }
+}
