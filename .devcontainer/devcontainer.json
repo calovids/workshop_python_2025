@@ -17,7 +17,8 @@
         "ms-toolsai.jupyter",
         "ms-vscode-remote.remote-containers",
         "ms-toolsai.datawrangler",
-        "marimo-team.vscode-marimo",
+        "h5web.vscode-h5web",
+        "dvirtz.parquet-viewer",
         "reditorsupport.r"
       ]
     }
