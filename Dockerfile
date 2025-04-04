@@ -1,12 +1,17 @@
+ARG TARGETARCH
 FROM debian:12
 SHELL ["/bin/bash", "-c"]
 
 RUN echo "deb http://deb.debian.org/debian bookworm main" > /etc/apt/sources.list && \
     apt-get update && apt-get upgrade -y && \
-    apt-get install -y wget bzip2 ca-certificates curl git  build-essential
+    apt-get install -y wget bzip2 ca-certificates curl git build-essential
 
-RUN wget --quiet https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh \
-    -O /tmp/miniforge.sh && \
+# Conditionally download the proper Miniforge installer based on architecture
+RUN if [ "$TARGETARCH" = "arm64" ]; then \
+      wget --quiet https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-aarch64.sh -O /tmp/miniforge.sh; \
+    else \
+      wget --quiet https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh -O /tmp/miniforge.sh; \
+    fi && \
     bash /tmp/miniforge.sh -b -p /opt/miniforge && \
     rm /tmp/miniforge.sh
 
