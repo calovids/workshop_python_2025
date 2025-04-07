@@ -19,6 +19,7 @@
         "ms-toolsai.datawrangler",
         "h5web.vscode-h5web",
         "dvirtz.parquet-viewer",
+        "goessner.mdmath",
         "reditorsupport.r"
       ]
     }
